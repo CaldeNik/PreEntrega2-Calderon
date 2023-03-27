@@ -4,7 +4,7 @@ import ItemListContainerComponent from '../components/ItemListContainerComponent
 const Tutorias = () => {
   return (
     <div>
-      <ItemListContainerComponent />
+      <ItemListContainerComponent category="tutorias"/>
     </div>
   );
 };

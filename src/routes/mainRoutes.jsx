@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import NavBarComponent from '../components/NavBarComponent/NavBarComponent';
 import Inicio from '../pages/Inicio';
 import Cursos from '../pages/Cursos';
@@ -11,10 +11,10 @@ const MainRoutes = () => {
     <>
       <NavBarComponent cartCount={0} />
       <Routes>
-        <Route exact path="/" component={Inicio} />
-        <Route exact path="/cursos" component={Cursos} />
-        <Route exact path="/carreras" component={Carreras} />
-        <Route exact path="/tutorias" component={Tutorias} />
+        <Route exact path="/" element={<Inicio />} />
+        <Route exact path="/cursos" element={<Cursos />} />
+        <Route exact path="/carreras" element={<Carreras />} />
+        <Route exact path="/tutorias" element={<Tutorias />} />
       </Routes>
     </>
   );
