@@ -1,37 +1,31 @@
-import React from 'react';
-import styles from './NavBarComponent.module.css'
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import NavItem from "./NavItem";
+import styles from "./NavComponent.module.css";
+import { Link } from "react-router-dom";
+import { CartComponent } from "../CartComponent/CartComponent";
+import { ThemeContext } from "../../context";
+import { Button } from "react-bootstrap";
 
-const NavBarComponent = ({ cartCount }) => {
+export const NavBarComponent = () => {
+  const { isDarkTheme, setIsDarkTheme } = useContext(ThemeContext);
+
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.navbar__brand}>
-        <Link to="/">
-          <img src="https://www.favicon.cc/logo3d/709515.png" alt="My E-commerce App" />
+    <nav className={styles.nav}>
+      <header>
+      <Link to="/">
+          <img  className={styles.navImg} src="https://www.favicon.cc/logo3d/709515.png" alt="My E-commerce App" />
         </Link>
-      </div>
-      <ul className={styles.navbar__menu}>
-        <li>
-          <Link to="/">Inicio</Link>
-        </li>
-        <li>
-          <Link to="/cursos">Cursos</Link>
-        </li>
-        <li>
-          <Link to="/carreras">Carreras</Link>
-        </li>
-        <li>
-          <Link to="/tutorias">Tutorías</Link>
-        </li>
-      </ul>
-      <div className={styles.navbar__cart}>
-        <Link to="/cart">
-          <i className="fa fa-shopping-cart navbar__cart-icon"></i>
-          <span className={styles['navbar__cart-count']}>{cartCount}</span>
-        </Link>
+      </header>
+      <div className={styles.navItems}>
+        <NavItem label="Inicio" src="/" />
+        <NavItem label="Cursos" src="/cursos" />
+        <NavItem label="Carreras" src="/carreras" />
+        <NavItem label="Tutorias" src="/tutorias" />
+        <Button onClick={() => setIsDarkTheme(!isDarkTheme)}>
+          {isDarkTheme ? "Modo Claro" : "Modo Oscuro"}
+        </Button>
+        <CartComponent />
       </div>
     </nav>
   );
 };
-
-export default NavBarComponent;

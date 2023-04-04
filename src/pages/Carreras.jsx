@@ -1,12 +1,13 @@
-import React from 'react';
-import ItemListContainerComponent from '../components/ItemListContainerComponent/ItemListContainerComponent';
+import React from 'react'
 
-const Carreras = () => {
+export const Carreras = () => {
   return (
     <div>
-      <ItemListContainerComponent category="carreras"/>
+        <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
     </div>
-  );
-};
-
-export default Carreras;
+  )
+}
