@@ -54,6 +54,7 @@ export const CartButtons = () => {
           value={state}
           placeholder="Cantidad custom"
           id="valueInput"
+          readOnly
         />
         <Button
           onClick={handleMoreClick}

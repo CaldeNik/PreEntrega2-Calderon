@@ -1,25 +1,27 @@
 import React from "react";
-import axios from "axios";
-import { ProductsData } from "../json";
 import { Card, Loader } from "../components";
-
-async function getAllProducts() {
-  return await axios("https://dummyjson.com/products");
-}
+import { collection, getDocs, getFirestore} from 'firebase/firestore';
 
 export const Inicio = () => {
   const [productsData, setProductsData] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
-    getAllProducts()
-      .then((res) => {
-        setLoading(true);
-        setProductsData(res);
-      })
-      .catch((err) => console.error(err))
-      .then(() => setLoading(false));
+    const db = getFirestore();
 
+    const itemCollection = collection(db, "products");
+    getDocs(itemCollection)
+    .then(products => {
+      if(products.length === 0){
+        console.log("No products")
+      }
+
+      setProductsData(
+        products.docs.map(doc => ({id: doc.id, ...doc.data() })))
+    }).catch(err => console.log(err)).then(() => {
+      console.log(productsData);
+      setLoading(false);
+    })
   }, []);
 
   if (!loading) {
@@ -32,7 +34,7 @@ export const Inicio = () => {
     <Loader />
   ) : (
     <div className="productos">
-      {ProductsData.map((producto) => (
+      {productsData.map((producto) => (
         <Card key={producto.id} producto={producto} />
       ))}
     </div>
