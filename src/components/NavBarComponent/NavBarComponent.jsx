@@ -24,7 +24,9 @@ export const NavBarComponent = () => {
         <Button onClick={() => setIsDarkTheme(!isDarkTheme)}>
           {isDarkTheme ? "Modo Claro" : "Modo Oscuro"}
         </Button>
-        <CartComponent />
+        <Link to = "cart">  
+          <CartComponent />
+        </Link>
       </div>
     </nav>
   );
