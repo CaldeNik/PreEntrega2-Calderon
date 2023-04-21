@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import styles from "./Buybutton.module.css"
 export const BuyButton = () => {
   const [isClicked, setIsClicked] = useState(false);
 
@@ -10,10 +10,10 @@ export const BuyButton = () => {
   return (
     <div>
       {!isClicked ? (
-        <button onClick={handleClick}>Comprar</button>
+        <button className={styles.button} onClick={handleClick}>Comprar</button>
       ) : (
-        <div style={{ border: "1px solid black", padding: "10px" }}>
-          Compra realizada
+        <div style={{ border: "5px solid blue", borderRadius: "8px", padding: "10px", fontWeight: "bold", color: "blue" }}>
+          <p>¡Compra realizada con éxito!</p>
         </div>
       )}
     </div>

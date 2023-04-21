@@ -5,13 +5,21 @@ import { BuyButton } from "../components";
 export const Cart = () => {
   const { itemCount } = useContext(CartContext);
 
+  const cartStyles = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: "50px",
+    fontFamily: "montserrat",
+  };
+
   return (
-    <div>
+    <div style={cartStyles}>
       {itemCount.qtyItems === 0 ? (
         <p>No hay productos en el carrito</p>
       ) : (
         <div>
-          <h2>Carrito de Compras</h2>
+          <h2>Finalice su compras</h2>
           <ul>
             {itemCount.products.map((product) => (
               <li key={product.productId}>

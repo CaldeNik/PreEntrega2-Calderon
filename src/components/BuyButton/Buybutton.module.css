@@ -1,0 +1,22 @@
+.button {
+    background-color: #4CAF50; /* Color de fondo verde */
+    border: none; /* Borde invisible */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Padding */
+    text-align: center; /* Texto centrado */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Botón en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 4px 2px; /* Margen */
+    cursor: pointer; /* Cambiar el cursor a pointer cuando el mouse está sobre el botón */
+    border-radius: 4px; /* Añadir bordes redondeados */
+  }
+  
+  .button.primary {
+    background-color: #008CBA; /* Color de fondo azul para botón principal */
+  }
+  
+  .button.danger {
+    background-color: #f44336; /* Color de fondo rojo para botón peligro */
+  }
+  
